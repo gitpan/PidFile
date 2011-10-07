@@ -12,7 +12,7 @@ use warnings;
 class PidFile {
 
     # --- version ---
-    our $VERSION  = '1.00';
+    our $VERSION  = '1.01';
 
     #=------------------------------------------------------------------------( use, constants )
 

@@ -1,0 +1,11 @@
+name:         PidFile
+version:      1.01
+version_from: lib/PidFile.pm
+installdirs:  site
+requires:
+    Carp:                   0
+    FindBin:                0
+    File::Basename:         0
+    File::Slurp:            0
+    MooseX::ClassAttribute: 0
+distribution_type: module
