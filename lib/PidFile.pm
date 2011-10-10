@@ -12,7 +12,7 @@ use warnings;
 class PidFile {
 
     # --- version ---
-    our $VERSION  = '1.01';
+    our $VERSION  = '1.02';
 
     #=------------------------------------------------------------------------( use, constants )
 
@@ -38,8 +38,7 @@ class PidFile {
     #  Path
     #=-------
     #* get path to pid file
-    #* input: (Str) name => script name ( default: $FindBin::Script )
-    #* return: path to pid file
+    #* return path to pid file
     method Path( $class: Str :name( $p_name ) = $FindBin::Script ) {
         return $class->Dir . '/' . basename( $p_name ) . ( $class->Suffix && '_'.$class->Suffix ) . '.pid';
     }
@@ -48,8 +47,7 @@ class PidFile {
     #  Read
     #=-------
     #* read pid from pid file
-    #* input: (Str) name => script name ( default: $FindBin::Script )
-    #* return: pid from pidfile or undef if pidfile not exists
+    #* return pid from pidfile or undef if pidfile not exists
     method Read( $class: Str :name( $p_name ) = $FindBin::Script ) {
         my $file = $class->Path( 'name' => $p_name );
 
@@ -68,10 +66,7 @@ class PidFile {
     #  Write
     #=--------
     #* write pid to pid file
-    #* input:
-    #*  (Int) pid  => process id  ( default: $$ )
-    #*  (Str) name => script name ( default: $FindBin::Script )
-    #* return: 1 upon successfully writing the file or undef if it encountered an error
+    #* return 1 upon successfully writing the file or undef if it encountered an error
     method Write( $class: Int :pid( $p_pid ) = $$, :name( $p_name ) = $FindBin::Script ) {
         my $file = $class->Path( 'name' => $p_name );
 
@@ -93,8 +88,7 @@ class PidFile {
     #  Delete
     #=---------
     #* delete pid file
-    #* input: (Str) name => script name ( default: $FindBin::Script )
-    #* return: 1 if file successfully deleted, else 0
+    #* return 1 if file successfully deleted, else 0
     method Delete( $class: Str :name( $p_name ) = $FindBin::Script ) {
         return unlink $class->Path( 'name' => $p_name );
     }
@@ -103,10 +97,7 @@ class PidFile {
     #  Check
     #=--------
     #* check if process running
-    #* input:
-    #*  (Int) pid  => process id  ( default: $$ )
-    #*  (Str) name => script name ( optional )
-    #* return: pid if proces exists, undef if error, else 0
+    #* return pid if proces exists, undef if error, else 0
     method Check( $class: Int :pid( $p_pid ) = $$, Str :name( $p_name ) = q{} ) {
         my $pid = $p_name ? $class->Read( 'name' => $p_name ) : $p_pid;
         return undef if not $pid;
@@ -166,7 +157,7 @@ PidFile provide very simple class methods to manages a pidfile for the current o
 
 get path to pid file
 
-input: (Str) name => script name ( default: $FindBin::Script )
+input: (Str) C<name> => script name ( default: C<$FindBin::Script> )
 
 return: path to pid file
 
@@ -174,7 +165,7 @@ return: path to pid file
 
 read pid from pid file
 
-input: (Str) name => script name ( default: $FindBin::Script )
+input: (Str) C<name> => script name ( default: C<$FindBin::Script> )
 
 return: pid from pidfile or undef if pidfile not exists
 
@@ -183,8 +174,10 @@ return: pid from pidfile or undef if pidfile not exists
 write pid to pid file
 
 input:
- (Int) pid  => process id  ( default: $$ )
- (Str) name => script name ( default: $FindBin::Script )
+
+(Int) C<pid>  => process id  ( default: C<$$> )
+
+(Str) C<name> => script name ( default: C<$FindBin::Script> )
 
 return: 1 upon successfully writing the file or undef if it encountered an error
 
@@ -192,7 +185,7 @@ return: 1 upon successfully writing the file or undef if it encountered an error
 
 delete pid file
 
-input: (Str) name => script name ( default: $FindBin::Script )
+input: (Str) C<name> => script name ( default: C<$FindBin::Script> )
 
 return: 1 if file successfully deleted, else 0
 
@@ -201,8 +194,10 @@ return: 1 if file successfully deleted, else 0
 check if process running
 
 input:
- (Int) pid  => process id  ( default: $$ )
- (Str) name => script name ( optional )
+
+(Int) C<pid>  => process id  ( default: C<$$> )
+
+(Str) C<name> => script name ( optional )
 
 return: pid if proces exists, undef if error, else 0
 
