@@ -12,7 +12,7 @@ use warnings;
 class PidFile {
 
     # --- version ---
-    our $VERSION  = '1.03';
+    our $VERSION  = '1.04';
 
     #=------------------------------------------------------------------------( use, constants )
 
@@ -157,7 +157,7 @@ PidFile provide very simple class methods to manages a pidfile for the current o
 
 get path to pid file
 
-input:
+input (hash):
 
 C<name> => (str) script name [ default: C<$FindBin::Script> ]
 
@@ -167,7 +167,7 @@ return: path to pid file
 
 read pid from pid file
 
-input:
+input (hash):
 
 C<name> => (str) script name [ default: C<$FindBin::Script> ]
 
@@ -177,7 +177,7 @@ return: pid from pidfile or undef if pidfile not exists
 
 write pid to pid file
 
-input:
+input (hash):
 
 C<pid>  => (int) process id  [ default: C<$$> ]
 
@@ -189,7 +189,7 @@ return: 1 upon successfully writing the file or undef if it encountered an error
 
 delete pid file
 
-input:
+input (hash):
 
 C<name> => (str) script name [ default: C<$FindBin::Script> ]
 
@@ -199,7 +199,7 @@ return: 1 if file successfully deleted, else 0
 
 check if process running
 
-input:
+input (hash):
 
 C<pid>  => (int) process id  [ default: C<$$> ]
 

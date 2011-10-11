@@ -1,7 +1,10 @@
 Revision history for PidFile
 
+1.04    11 Oct 2001
+        Update META.yml to Spec v2
+
 1.03    11 Oct 2011
-        Update META.yml and Makefile.PL
+        Update Makefile.PL
 
 1.02    10 Oct 2011
         Fix POD
