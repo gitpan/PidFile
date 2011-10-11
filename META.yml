@@ -1,11 +1,18 @@
-name:         PidFile
-version:      1.02
-version_from: lib/PidFile.pm
-installdirs:  site
+--- #YAML:1.0
+name:       PidFile
+version:    1.03
+abstract:   read / write pidfile
+license:    perl
+author:
+    - Lukasz Romanowski (lroman@cpan.org)
 requires:
     Carp:                   0
     FindBin:                0
     File::Basename:         0
     File::Slurp:            0
+    MooseX::Declare:        0
     MooseX::ClassAttribute: 0
+no_index:
+    directory:
+        - t
 distribution_type: module

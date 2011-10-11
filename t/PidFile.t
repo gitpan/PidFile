@@ -1,9 +1,8 @@
 #!/usr/bin/perl
-#APos: APosDoc=1.5
 #*
 #* Name: PidFile.t
 #* Info: Test for: PidFile
-#* Author: Lukasz Romanowski (lr5013|roman) <lukasz.romanowski@hurra.com>
+#* Author: Lukasz Romanowski (lr5013|roman) <lroman@cpan.org>
 #*
 
 use strict;
